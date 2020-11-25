@@ -1,0 +1,280 @@
+\section{群论基础}
+
+\subsection{\texorpdfstring{$O(2h{+}1,1)\,$}{O(2h+1,1)}群和它的\,Lie\,代数}
+
+记$\,N = 2h{+}1$. $h\,$是半整数, 接下来主要考虑$\,h>1\,$的情况.
+
+$O(2h{+}1,1)\,$群是保持{\it{实}}\,$(N{+}1)$-维矢量空间中的如下内积
+\begin{gather}
+    \xi^{2}:= \xi\eta\xi =\xi_{1}^{2}+\cdots +\xi_{N}^{2}-\xi_{0}^{2}\quad  \label{1.1} 
+\end{gather}
+不变的线性变换构成的集合. ($\eta\,$是对角矩阵, 其中$\,\eta_{11}=\cdots=\eta_{NN}=-\eta_{00}=1$.) 
+这个群由满足
+\begin{equation}
+    g^{\mathrm{T}}\eta g =\eta 
+\end{equation}
+的$\,(N{+}1)\times (N{+}1)\,$实矩阵$\,g\,$构成. 它的恒元分量$\,G=SO^{\uparrow}(N,1)\,$由满足\eqref{1.1}以及
+\begin{equation}
+    \operatorname{det}g=1,\quad g^{0}{}_{0}>1
+\end{equation}
+的那些$\,g\,$组成. 我们将主要处理包含空间反射的扩张群
+\begin{equation}
+    G_{\text{ex}}=O^{\uparrow}(2h{+}1,1)=\{g\in O(2h{+}1,1)\,\vert\,g^{0}{}_{0}\geq 1\}.
+\end{equation}
+
+$G\,$的\,Lie\,代数$\,\mathfrak{g}\,$由满足
+\begin{equation}
+    X^{\mathrm{T}}\eta+\eta X=0 \label{1.5}
+\end{equation}
+的$\,(N{+}1)\times (N{+}1)\,$实矩阵$\,X\,$构成. 我们可以选择$\,\mathfrak{g}\,$中的一组基$\,X_{AB}=-X_{BA}$\,($\,A,B=0,1,\ldots,N\,$)使其满足对易关系
+\begin{equation}
+    [X_{AB},X_{CD}]=\eta_{AC}X_{BD}+\eta_{BD}X_{AC}-\eta_{AD}X_{BC}-\eta_{BC}X_{AD} \:.\label{1.6}
+\end{equation}
+(注意物理中使用的$\,J_{AB}\,$与$\,X_{AB}\,$的关系是$\,J_{AB}=\mi X_{AB}$.) $X_{AB}\,$的一个矩阵实现是
+\begin{equation}
+    \bigl(X_{AB}\bigr)^{C}_{D}=\eta_{AD}\delta_{B}^{C}-\eta_{BD}\delta_{A}^{C}\:. \label{1.7}
+\end{equation}
+
+\subsection{子代数和分解}
+
+下表给出了群$\,G\,$的几个重要子群:
+\begin{table}[h]
+\centering
+        \begin{tabular}{ c c c }
+         子群 & 特性 & 生成元 \\ \hline
+         $K=SO(2h{+}1)$ & 最大紧子群 & $X_{ab}\:\text{其中  } a,b=1,\ldots,2h{+}1$ \\  
+         $A=SO(1,1)$ & 1-维非紧群(``伸缩变换'') & $X_{2h{+}1,0}=D$ \\
+         $M=SO(2h)$  & $A\,$在$\,K\,$中的中心($mam^{-1}=a$)\, & $X_{\mu\nu}\:\text{其中  } \mu,\nu=1,\ldots,2h$ \\  
+         $N$ & 幂零, 阿贝尔 (特殊共形变换) & $C_{\mu}=X_{\mu,0}-X_{\mu,2h+1}$ \\
+         $\tilde{N}$ & 幂零, 阿贝尔 (平移) & $T_{\mu}=X_{\mu,0}+X_{\mu,2h+1}$ \\
+         $H=H_{AM}=AH_{M}$ & $(\lfloor h\rfloor{+}1)$-维阿贝尔群 (嘉当子群) & $D, X_{12},\ldots,X_{2\lfloor h\rfloor-1,2\lfloor h\rfloor}$ 
+        \end{tabular}
+        \caption{群$\,G=SO^{\uparrow}\,$的几个重要子群.}
+\label{tab:1}
+\end{table}
+
+根据\eqref{1.6}, 生成元$\,D$, $C_{\mu}\,$和$\,T_{\mu}\,$满足对易关系:
+\begin{align*}
+    [D,C_{\mu}]=-C_{\mu}\:, \quad [D,T_{\mu}]=T_{\mu}\:,\quad \tfrac{1}{2}[T_{\mu},C_{\nu}]=D\delta_{\mu\nu}-X_{\mu\nu}; \nonumber \\
+    [X_{\lambda\mu},T_{\nu}]=\delta_{\lambda\nu}T_{\mu}-\delta_{\mu\nu}T_{\lambda} \:, \quad 
+    [X_{\lambda\mu},C_{\nu}]=\delta_{\lambda\nu}C_{\mu}-\delta_{\mu\nu}C_{\lambda} \:. \label{1.6'} \tag{1.6$'$}
+\end{align*}
+物理动量算符由$\,\mi T_{\mu}\,$的厄密表示给出.
+
+令\,$M'$\,是$\,A\,$在$\,K\,$中的正规化子, 即对所有的$\,a\in A\,$使得$\,m'am'^{-1}\in A\,$的$\,m'\in K\,$的集合. 很容易看到$\,M'\,$同构于$\,O(2h)\,$且$\,M\,$是$\,M'\,$的不变子群. 有限群
+\begin{equation}
+    W=W(G,A)=M'/M
+\end{equation}
+被称为$\,(G,A)\,$对的\,Weyl\,群(\,或者限制\,Weyl\,群). 它有两个元素$\,W=\{1,w\}$. 幂零子群$\,N\,$和$\,\tilde{N}\,$在\,Weyl\,变换下互为共轭
+\begin{equation}
+    wNw^{-1}=\tilde{N} \:. \label{1.9}
+\end{equation}
+如有需要, 我们对$\,w\,$选择如下表示
+\begin{equation}
+    w=\exp\bigl(\pi X_{2h,2h+1}\bigr) \label{1.10}
+\end{equation}
+即在$\,(2h,2h{+}1)$-平面中旋转$\,\pi$. 在下文中, 我们将把$\,K,N,A,M,\tilde{N}$\,中的元素记为$\,k,n,a,m,\tilde{n}$.
+\begin{tcolorbox}
+    \begin{note}
+        $\,K\,$中$\,X_{\mu\nu}\,$以外的生成元是$\,X_{\mu,2h+1}$, 它与$\,D=X_{2h+1,0}\,$的关系是
+        \begin{equation*}
+         \operatorname{Ad}({X_{\mu,2h+1}})D:=  [X_{\mu,2h+1},D]=-X_{\mu,0} \quad 
+         \operatorname{Ad}^{2}(X_{\mu,2h+1})D=-D 
+        \end{equation*}
+    那么根据\,Baker–Campbell–Hausdorff\,公式
+    \begin{align*}
+        \exp(t X_{\mu,2h+1}) \exp(a D )\exp(-t X_{\mu,2h+1})
+        &=\exp\biggl(a \sum_{n}\frac{t^{n}\operatorname{Ad}^{n}(X_{\mu,2h+1})D}{n!}\biggr) \\
+        &=\exp\Bigl( a\cos(t)D-a\sin(t)X_{\mu,2h{+}1}\Bigr)
+    \end{align*}
+    由此得出$\,A\,$在$\,K\,$中的中心化子至多再含有\,$\exp(n\pi  X_{\mu,2h{+}1})$, 这个元素加上$\,M\,$构成了$\,O(2h)$. \eqref{1.9}式说明了: 平移作用在原点上但保持无限远不动, 而特殊共形变换则正相反.
+    \end{note}
+\end{tcolorbox}
+
+\paragraph*{Iwasana\,分解:} $G\,$的每个群元可以表示为
+\begin{equation}
+    g=kna \:, \label{1.11}
+\end{equation}
+或
+\begin{equation}
+    g=\tilde{n}ak \label{1.12}
+\end{equation}
+(\eqref{1.11}和\eqref{1.12}中的$\,k\,$和$\,a\,$因子一般不同). 两种分解版本中的顺序十分重要, 在下面我们将使用\eqref{1.11}.
+
+\paragraph*{Bruhat\,分解:} $G\,$的几乎所有群元$\,g\in G$\,(即那些不属于低维子流形$\,wNAM\,$的群元)都可以唯一地写成
+\begin{equation}
+    g=\tilde{n}nam \:. \label{1.13}
+\end{equation}
+
+\begin{remark}
+对于奇数或偶数的$\,N$, $SO^{\uparrow}(N,1)\,$有一个很大的不同. 对于偶数的$\,N\,$ 除了表:\ref{tab:1}所列的嘉当子群外, 还有另外一个紧嘉当子群, 生成元是$\,X_{12},X_{34},\ldots,X_{N-1,N}$. 由此得出, 当$\,N\,$为偶数时, 椭圆元(本征值模为\,1\,的矩阵)集合的维数与$\,G\,$相同. 这使得进对于偶数的$\,N$, $G\,$的幺正表示是离散序列.
+\end{remark}
+
+\subsection{紧化欧几里得空间作为$\,G\,$的齐次空间}
+
+出现在\,Bruhat\,分解中的``抛物子群''$\,NAM\,$在群$\,G\,$的诱导表示的\,Harish-Chandra\,构造中起到了特殊作用. 值得注意的是齐次空间
+\begin{equation}
+    G/NAM \approx K/M \approx S^{2h} \label{1.14}
+\end{equation}
+(同构于$\,2h{+}1\,$维中的单位球面$\,S^{2h}\,$)与物理有关. 它可以视为是\,$2h$\,-维欧几里得空间$\,\mathbb{X}=\mathbb{R}^{2h}$\,的共形紧化. ($S^{2h}\,$是通过给$\,\mathbb{X}\,$加上无穷远点$\,\infty\,$获得的.)
+
+特别的, $G\,$在矢量空间$\,\mathbb{X}\,$上有一个定义良好的定域作用, 这个作用可以等同为右陪集$\,\tilde{n}NMA\,$的流形. 
+由于$\,g\in G\backslash wNAm$的\,Bruhat\,分解\eqref{1.13}的唯一性, 陪集$\,x\in\mathbb{X}\,$与群元$\,\tilde{n}\in\tilde{N}\,$存在对应使得$\,x=\tilde{n}NMA$. 由于这个原因, 我们将$\,\tilde{N}\,$中与$\,x(\in\mathbb{X})\,$对应的元素记为$\,\tilde{n}_{x}$. 我们以
+\begin{equation}
+    \tilde{n}_{x_{1}}\tilde{n}_{x_{2}}=\tilde{n}_{x_{1}+x_{2}} \tag{1.15a}\label{1.15a}
+\end{equation}
+方式赋予$\,\mathbb{X}\,$以实矢量空间的结构. $G\,$的抛物子群$\,\tilde{N}MA\,$是$\,\mathbb{X}\,$的自同构群. 特别的, 
+\begin{equation}
+    \tilde{n}_{x}y=x+y \:. \tag{1.15b} \label{1.15b}
+\end{equation}
+零矢量$\,x=0\,$的稳定子群是$\,G\,$的抛物子群$\,NAM$. 齐次空间\eqref{1.14}同构于$\,\mathbb{R}^{2h+1,1}\,$中类光射线的集合:
+\begin{equation*}
+    G/NAM\approx \mathbb{K}_{+}/\mathbb{R}_{+} \tag{1.14$'$} \label{1.14'}
+\end{equation*}
+其中$\,\mathbb{R}_{+}\,$是正实数的乘法群, 而
+\begin{equation*}
+    \mathbb{K}_{+}:= \mathbb{K}^{2h+1,1}_{+}(\approx G/NM) = 
+    \{ \xi\in \mathbb{R}^{2h+2};\:\xi_{0}>0,\:\xi\eta\xi=0\}
+\end{equation*}
+$x\in \mathbb{X}\,$用$\,\xi\,$表示是
+\begin{equation}
+    x_{\mu}=\frac{\xi_{\mu}}{\xi_{0}+\xi_{2h+1}} \:, \quad 
+    \xi_{M}:=[\xi_{0}:\xi_{\mu}:\xi_{2h+1}]=[1+x^{2}:2x_{\mu}:1-x^{2}]\:. \tag{1.16}\label{1.16}
+\end{equation}
+\setcounter{equation}{16}
+$g\,$在齐次空间\eqref{1.14'}上的左传递生成了$\,G\,$在$\,\mathbb{K}_{+}\,$的自然作用$\,g:$ $\xi\to g\xi$, 这给出了$\,x\,$的变换规则. 我们推出$\,\mathbb{X}\,$的自同构群是抛物子群$\,\tilde{N}AM\,$(与$\,NAM\,$共轭). $\tilde{N}\,$的作用已经在\eqref{1.15b}中给出. 伸缩$\,a\in A$\,与旋转$\,m\in M\,$在$\,\mathbb{X}\,$上的作用是
+    \begin{subequations}\label{1.17}
+        \begin{align}
+            ax&=\lvert a\rvert x \:, \\
+        (mx)_{\mu}&= m_{\mu\nu}x_{\nu} \:.
+        \end{align}
+    \end{subequations}
+由于特殊线性变换总可以把$\,\mathbb{X}\,$中的任意一点送到无穷远, 我们只讨论它的无限小版本. 对于$\,N\,$中单位元附近的元素$\,n_{\epsilon}$, 我们有
+\begin{equation}
+    n_{\epsilon}x : x\to x'(\epsilon),\quad 
+     x'_{\mu}=x_{\mu}+(x^{2}\delta_{\mu\nu}-2x_{\mu}x_{\nu})\epsilon_{\nu}+O(\epsilon^{2}) \:. \label{1.18}
+\end{equation}
+
+\subsection{$G\,$的各种子群的矩阵实现. Bruhat\,分解的构造}
+
+矩阵$\,\tilde{n}\,$和$\,n\,$可以分别被相应的\,$2h$-维矢量$\,x(\in \mathbb{X})\,$和$\,b\,$实现. 
+利用生成元的矩阵实现\eqref{1.7}, 我们获得矩阵$\,x_{\mu}T_{\mu}\,$和$\,b_{\mu}C_{\mu}\,$的如下表示:
+\begin{equation}
+    x_{\mu}T_{\mu}= \left(
+        \begin{array}{@{}c:c@{}}
+            \mathbf{0}_{2h\times 2h} & \begin{matrix}
+                -x^{\mathrm{T}} & x^{\mathrm{T}} 
+            \end{matrix} \\ \hdashline[4pt/4pt]
+            \begin{matrix}
+                x \\ x
+            \end{matrix} &
+            \mathbf{0}_{2\times 2}
+        \end{array}
+    \right) \tag{1.19a} \label{1.19a}
+\end{equation}
+其中$\,x=(x_{1},\ldots,x_{2h})\,$是行矢量; 类似的,$\mathds{0}$
+\begin{equation}
+    b_{\mu}C_{\mu}= \left(
+        \begin{array}{@{}c:c@{}}
+            \mathbf{0}_{2h\times 2h} & \begin{matrix}
+                -b^{\mathrm{T}} & b^{\mathrm{T}} 
+            \end{matrix} \\ \hdashline[4pt/4pt]
+            \begin{matrix}
+                -b \\ b
+            \end{matrix} &
+            \mathbf{0}_{2\times 2} 
+        \end{array}
+    \right) \tag{1.19b} \label{1.19b}
+\end{equation}
+由此可以得到
+\begin{equation}
+    \tilde{n}_{x}=\exp(x_{\mu}T_{\mu}) =
+    \begin{pmatrix}
+        \mathds{1}_{2h\times 2h} & -x^{\mathrm{T}} &  x^{\mathrm{T}} \\
+        x  & 1-\tfrac{1}{2}x^{2} & \tfrac{1}{2}x^{2} \\
+        x & -\tfrac{1}{2}x^{2} & 1+\tfrac{1}{2}x^{2}
+    \end{pmatrix}  \tag{1.20a} \label{1.20a}
+\end{equation}
+和
+\begin{equation}
+    n_{b}=\exp(b_{\mu}C_{\mu}) =
+    \begin{pmatrix}
+        \mathds{1}_{2h\times 2h} & b^{\mathrm{T}} &  b^{\mathrm{T}} \\
+        -b  & 1-\tfrac{1}{2}b^{2} & -\tfrac{1}{2}b^{2} \\
+        b & \tfrac{1}{2}b^{2} & 1+\tfrac{1}{2}b^{2}
+    \end{pmatrix}  \tag{1.20b} \label{1.20b} \:.
+\end{equation}
+\setcounter{equation}{20}
+
+类似地, 伸缩变换$\,a\,$的矩阵表示是
+\begin{equation}
+    a=\exp(\alpha D) =
+    \begin{pmatrix}
+        \mathds{1}_{2h\times 2h} & 0&  0 \\
+        0  &\cosh \alpha & \sinh \alpha \\
+        0 & \sinh \alpha & \cosh \alpha
+    \end{pmatrix}  
+\end{equation}
+\begin{note}
+    在这个变换下, $(\xi_{2h+1},\xi_{0})\to ( \xi_{2h+1}\cosh \alpha+\xi_{0}\sinh \alpha , \xi_{2h+1}\sinh \alpha+ \xi_{0}\cosh \alpha)$, 所以$\,\xi_{2h+1}+\xi_{0}\to \me^{\alpha}(\xi_{2h+1}+\xi_{0})$, 那么$\,a x= \me^{-\alpha}x$.
+\end{note}
+同样有
+\begin{align}
+    m&= \begin{pmatrix}
+        m_{\mu\nu} & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+    \end{pmatrix} \:, \qquad (m_{\mu\nu})\in SO(2h) \:, \label{1.22} \\
+    k&= \begin{pmatrix}
+        k_{\mu\nu} & k_{\mu,2h+1} & 0 \\
+        k_{2h+1,\nu} & k_{2h+1,2h+1} & 0 \\
+        0 & 0 & 1 \\
+    \end{pmatrix} \:, \qquad (k_{ab})\in SO(2h+1) \:. \label{1.22}
+\end{align}
+将矩阵\eqref{1.20a}---\eqref{1.22}乘起来就得到了群元$\,g\,$形如\eqref{1.13}的表达式
+\begin{align}
+    g&=\tilde{n}_{x}n_{b}am =
+    \begin{pmatrix}
+        \mathds{1}_{2h\times 2h} & -x^{\mathrm{T}} &  x^{\mathrm{T}} \\
+        x  & 1-\tfrac{1}{2}x^{2} & \tfrac{1}{2}x^{2} \\
+        x & -\tfrac{1}{2}x^{2} & 1+\tfrac{1}{2}x^{2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        m^{\mu}{}_{\nu} & \me^{\alpha}b^{\mu} & \me^{\alpha}b^{\mu} \\
+        -b_{\sigma}m^{\sigma}{}_{\nu} & \frac{1}{2}\bigl(\me^{\alpha}(1-b^{2})+\me^{-\alpha}\bigr)&
+        \frac{1}{2}\bigl(\me^{\alpha}(1-b^{2})-\me^{-\alpha}\bigr) \\
+        b_{\sigma}m^{\sigma}{}_{\nu} &\frac{1}{2}\bigl(\me^{\alpha}(1+b^{2})-\me^{-\alpha}\bigr)&
+        \frac{1}{2}\bigl(\me^{\alpha}(1+b^{2})+\me^{-\alpha}\bigr)
+    \end{pmatrix} \nonumber \vspace{10pt} \\ 
+    &= \begin{pmatrix}
+        m^{\mu}{}_{\nu}+2x^{\mu}b_{\sigma}m^{\sigma}{}_{\nu} & \me^{\alpha} b^{\mu}+ (\me^{\alpha}b^{2}-\me^{-\alpha})x^{\mu} &
+        \me^{\alpha}b^{\mu}+ (\me^{\alpha}b^{2}+\me^{-\alpha})x^{\mu}  \\
+        x_{\sigma}m^{\sigma}{}_{\nu}+b_{\sigma}m^{\sigma}{}_{\nu}(x^{2}{-}1) &
+        \me^{\alpha} x_{\rho}b_{\rho} +\frac{\bigl( \me^{\alpha}+(\me^{\alpha}b^{2}-\me^{-\alpha})(x^{2}-1)\bigr)}{2} &
+        \me^{\alpha} x_{\rho}b_{\rho} +\frac{\bigl( \me^{\alpha}+(\me^{\alpha}b^{2}+\me^{-\alpha})(x^{2}-1)\bigr)}{2} \\
+        x_{\sigma}m^{\sigma}{}_{\nu}+b_{\sigma}m^{\sigma}{}_{\nu}(x^{2}{+}1) &
+        \me^{\alpha} x_{\rho}b_{\rho} +\frac{\bigl( \me^{\alpha}+(\me^{\alpha}b^{2}-\me^{-\alpha})(x^{2}+1)\bigr)}{2} &
+        \me^{\alpha} x_{\rho}b_{\rho} +\frac{\bigl( \me^{\alpha}+(\me^{\alpha}b^{2}+\me^{-\alpha})(x^{2}+1)\bigr)}{2}
+    \end{pmatrix} \label{1.24}
+\end{align}
+矩阵$\,g\in G\,$可以写成形如\eqref{1.24}的条件是
+\begin{equation}
+    d(g):=\tfrac{1}{2}\bigl(g^{2h+1}{}_{2h+1}-g^{2h+1}{}_{0}-g^{0}{}_{2h+1}+g^{0}{}_{0}\bigr) =\me^{-\alpha} >0
+\end{equation}
+注意, $d(g)\,$对形如$\,wnam\,$的$\,g\,$为零.
+
+利用\eqref{1.24}可以得到
+\begin{subequations}
+    \begin{align}
+        x^{\mu}&=\frac{1}{2d(g)}\Bigl(g^{\mu}{}_{0}-g^{\mu}{}_{2h+1}\Bigr) \:, \\
+        2b^{\mu}&=\bigl(g^{0}{}_{0}-g^{2h+1}{}_{0}\bigr)g^{\mu}{}_{2h+1}+
+        \bigl(g^{2h+1}{}_{2h+1}-g^{0}{}_{2h+1}\bigr)g^{\mu}{}_{0} \\
+        m^{\mu}{}_{\nu}&=g^{\mu}{}_{\nu}-\frac{\bigl(g^{\mu}{}_{0}-g^{\mu}{}_{2h+1}\bigr)\bigl(g^{0}{}_{\nu}-g^{2h+1}{}_{\nu}\bigr)}{2d(g)}
+    \end{align} \label{1.26}
+\end{subequations}
+
+通过
+\begin{equation}
+    g\tilde{n}_{x} =\tilde{n}_{x'} n(g,x)a(g,x)m(g,x) \:. \label{1.27}
+\end{equation}
+我们定义变换$\,x\xrightarrow[]{g}x'$
