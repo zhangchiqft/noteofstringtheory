@@ -1,0 +1,59 @@
+\documentclass[cn,11pt,chinese]{elegantbook}
+
+\title{\,弦论笔记}
+\subtitle{Notes on Polchinski's String theory}
+
+\author{兴趣使然的弦论爱好者}
+%\institute{Elegant\LaTeX{} Program}
+\date{\today}
+%\version{3.10}
+%\bioinfo{自定义}{信息}
+
+\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
+
+%\logo{logo-blue.png}
+\cover{M-theory.jpeg}
+
+% 本文档命令
+\usepackage{array}
+\usepackage{dsfont}
+\usepackage{tensor}
+
+ \definecolor{foo}{RGB}{173,34,48}
+%+++++++++++++++++++++++数学字体的设置++++++++++++++++++++++++++++++++++++++++%
+\newcommand{\me}{\mathrm{e}}  % for math e
+\newcommand{\mi}{\mathrm{i}} % for math i
+\newcommand{\dif}{\mathrm{d}} %for differential operator d
+\newcommand{\cvec}[1]{\!\vec{\,#1}}
+\newcommand{\Ptimes}{\,\overset{\otimes }{,}\,}
+\DeclareSymbolFont{lettersA}{U}{txmia}{m}{it}
+ \DeclareMathSymbol{\piup}{\mathord}{lettersA}{25}
+ \DeclareMathSymbol{\muup}{\mathord}{lettersA}{22}
+ \DeclareMathSymbol{\deltaup}{\mathord}{lettersA}{14}
+ \newcommand{\uppi}{\piup}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+
+\DeclareFontEncoding{LS1}{}{}
+\DeclareFontSubstitution{LS1}{stix}{m}{n}
+\DeclareSymbolFont{symbols2}{LS1}{stixfrak}{m}{n}
+\DeclareMathSymbol{\typecolon}{\mathbin}{symbols2}{"25}
+% 修改目录深度
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+\mainmatter
+
+\tableofcontents
+\part{玻色弦理论导论}
+
+
+\part{超弦理论以及拓展}
+\include{chapter10}
+\include{chapter11}
+\include{chapter12}
+
+\end{document}

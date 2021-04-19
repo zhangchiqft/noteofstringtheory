@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+%\usepackage[UTF8,space=false]{ctex}
+\usepackage[CJKecglue = {}]{xeCJK}
+\setCJKmainfont[BoldFont={Songti SC}, ItalicFont={STKaiti}]{Source Han Serif SC}
+\setCJKsansfont[BoldFont={STHeiti}]{STXihei}
+\setCJKmonofont{STFangsong}
+\usepackage{fontspec}
+%CJKecglue = {0pt}
+%\ctexset={fontset=mac}
+
+\usepackage{indentfirst}
+\usepackage{anyfontsize}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsthm}
+%\RequirePackage{newtxmath}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xpatch}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{arydshln}
+\usepackage{dsfont}
+
+%\ctexset{}
+
+
+\usepackage[margin=15mm,a4paper,includefoot]{geometry}
+
+\renewcommand\theequation{\arabic{section}.\arabic{equation}} 
+\lstset{language=[LaTeX]{TeX},basicstyle=\footnotesize\ttfamily}
+
+
+\hypersetup{%
+    % pdfborder = {0 0 0},
+    colorlinks,
+    citecolor=darkred,
+    filecolor=DarkBlue,
+     linkcolor=darkred,
+    % urlcolor=ecolor
+}
+
+
+% 行距设置
+\linespread{1.3}
+\setlength{\parskip}{3mm}
+\setlength{\parindent}{2em}
+
+\newtheorem{theorem}{定理}[section] %
+\newtheorem{lemma}[theorem]{引理} %
+\newtheorem{proposition}[theorem]{性质} %
+\newtheorem*{corollary}{推论} %
+\theoremstyle{definition} %
+\newtheorem{definition}{定义}[section] %
+\newtheorem{conjecture}{猜想}[section] %
+\newtheorem{example}{例}[section] %
+\theoremstyle{remark} %
+\newtheorem*{remark}{评论} %
+\newtheorem*{note}{注} %
+\newtheorem{case}{案例} %
+\renewcommand*{\proofname}{证明} %
+\renewcommand\contentsname{目录}
+\renewcommand\refname{参考文献} %
+\renewcommand\figurename{图} %
+\renewcommand\tablename{表}
+
+
+\definecolor[named]{DarkBlue}{HTML}{4f81bc}
+\definecolor[named]{SemiDarkBlue}{HTML}{233e5f}
+\definecolor[named]{LightBlue}{HTML}{dbe4f0}
+\definecolor[named]{Nblue}{RGB}{58,58,144}
+\definecolor[named]{darkred}{RGB}{121,0,38}
+
+\title{ \bfseries \color{DarkBlue}{ Harmonic Analysis:} \\ 
+\color{darkred}\large{on the $n$-Dimensional Lorentz Group and Its Application to Conformal Field Theory}}
+
+\author{ 张\,驰\thanks{\texttt{email:zhangchi\_110@163.com}} }
+\date{\today}
+
+
+% %+++++++++++++++++++++++数学字体的设置++++++++++++++++++++++++++++++++++++++++%
+\newcommand{\me}{\mathrm{e}}  % for math e
+\newcommand{\mi}{\mathrm{i}} % for math i
+\newcommand{\dif}{\mathrm{d}} %for differential operator d
+
+\begin{document}
+
+
+\maketitle
+
+\newpage
+
+\include{section1}
+\end{document}

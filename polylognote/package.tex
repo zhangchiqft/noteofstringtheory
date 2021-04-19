@@ -1,0 +1,65 @@
+\usepackage{amsmath}                      % AMSLaTeX宏包，用来排出更加漂亮的公式
+%\usepackage{CJKutf8}
+%\usepackage{amsfonts}                     % AMS提供的数学符号的字库
+%\usepackage{amssymb}                      % 数学符号生成命令
+%\usepackage{unicode-math}
+\usepackage{amsthm}                       % 数学定理环境
+\usepackage[lcgreekalpha]{stix}
+%\usepackage{upgreek}
+\usepackage{anyfontsize}
+\usepackage{wasysym}                      % 支持直立的积分号
+\usepackage{indentfirst}                  % 首行缩进宏包
+\usepackage{geometry}                     % 设置页边距
+%\usepackage{eufrak}                       % 引入德文字体
+ \usepackage{hypbmsec}                     % 用来控制书签中标题显示内容
+ \usepackage{graphicx}                     % 支持插图处理
+ %\usepackage{epstopdf}                     % eps图片转换成pdf
+ \usepackage{caption}                     % 浮动体标题的格式控制
+ \usepackage{mathrsfs}                    %支持花写字母
+ \usepackage{tikz}
+ \usepackage{bm}
+% \usepackage{xeCJK}
+% \usepackage{upgreek}
+ %\usepackage{stix}
+ \usetikzlibrary{arrows}  
+% \usepackage[CJKbookmarks=true,
+%             unicode,
+%             hyperfootnotes=true,
+%             bookmarks=true,
+%             colorlinks,
+%             citecolor=blue]{hyperref}     % 中文书签
+
+\geometry{left=2.5cm,right=2.5cm, top=3.0cm, bottom=3.0cm}
+\usepackage{dsfont}   %空心数字
+%\usepackage{shuffle}
+
+
+\newcommand{\song}{\CJKfamily{song}}    % 宋体   (Windows自带simsun.ttf)
+\newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体 (Windows自带simfs.ttf)
+\newcommand{\kai}{\CJKfamily{gkai}}      % 楷体   (Windows自带simkai.ttf)
+\newcommand{\hei}{\CJKfamily{hei}}      % 黑体   (Windows自带simhei.ttf)
+
+%+++++++++++++++++++++++数学字体的设置++++++++++++++++++++++++++++++++++++++++%
+\newcommand{\me}{\mathrm{e}}  % for math e
+\newcommand{\mi}{\mathrm{i}} % for math i
+\newcommand{\dif}{\mathrm{d}} %for differential operator d
+\newcommand{\Li}{\operatorname{Li}} %for Polylog Li
+\newcommand{\Reg}{\operatorname{Reg}} %for regularized limits
+%\newcommand{\det}{\operatorname{det}}
+\newcommand{\Pf}{\operatorname{Pf}}                % for mathematical Pfaffian
+\newcommand{\cvec}[1]{\!\vec{\,#1}}               %居中的矢量箭头
+\newcommand{\Ptimes}{\,\overset{\otimes }{,}\,}   %张量Poisson括号
+% \DeclareSymbolFont{lettersA}{U}{txmia}{m}{it}
+% \DeclareMathSymbol{\piup}{\mathord}{lettersA}{25}
+%  \DeclareMathSymbol{\muup}{\mathord}{lettersA}{22}
+%  \DeclareMathSymbol{\deltaup}{\mathord}{lettersA}{14}
+%  \newcommand{\uppi}{\piup}
+
+
+%\renewcommand{\captionlabeldelim}{\ }%去掉图标签后面的冒号
+
+\setcounter{section}{0}%更改chapter的计数器值
+\numberwithin{equation}{section}%公式计数器从属于节计数器
+\numberwithin{figure}{section}%图计数器从属于节计数器
+\pdfmapfile{=pdftex.map}
+

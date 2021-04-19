@@ -1,3 +1,4 @@
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{elegantnote}[2018/01/06 ElegantNote v2.00 class]
 \LoadClass[11pt,final]{article}
@@ -47,12 +48,15 @@
 	\RequirePackage{type1cm}
 	\setmainfont{Times New Roman}
 	\setsansfont{Arial}
-	\setmonofont{Microsoft YaHei}
+	\setmonofont{DejaVu Sans Mono}
 	\RequirePackage{xeCJK}
 	\RequirePackage{fontspec, xunicode, xltxtra}
-	\setCJKmainfont[BoldFont={黑体},ItalicFont={楷体}]{宋体}
-	\setCJKsansfont[BoldFont={黑体},ItalicFont={楷体}]{楷体}
-	\setCJKmonofont[BoldFont={黑体},ItalicFont={楷体}]{微软雅黑}
+	% \setCJKmainfont[BoldFont={黑体},ItalicFont={楷体}]{宋体}
+	% \setCJKsansfont[BoldFont={黑体},ItalicFont={楷体}]{楷体}
+	% \setCJKmonofont[BoldFont={黑体},ItalicFont={楷体}]{微软雅黑}
+	\setCJKmainfont[BoldFont={Songti SC}, ItalicFont={STKaiti}]{STSong}
+	\setCJKsansfont[BoldFont={STHeiti}]{STXihei}
+	\setCJKmonofont{STFangsong}
 	\XeTeXlinebreaklocale "zh"
 	\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
 \else

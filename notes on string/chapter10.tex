@@ -1,8 +1,15 @@
 
-\chapter{ Type I and type II superstrings  }
+
+\setcounter{section}{0}%更改chapter的计数器值
+%\numberwithin{equation}{chapter}%公式计数器从属于节计数器
+\numberwithin{equation}{section}%公式计数器从属于节计数器
+\numberwithin{figure}{section}%图计数器从属于节计数器
+\setcounter{chapter}{9}
+
+\chapter{I型超弦和II型超弦}
 
 
-\section{ The superconformal algebra }
+\section{超共形代数}
 
 玻色弦中, 质壳条件
 \begin{equation}
@@ -392,7 +399,7 @@ _{w}\psi ^{\mu }(w)\frac{1}{z-w} \\
     c=\frac{3}{2}D+6\alpha^{\prime} V^{\mu}V_{\mu}  \label{10.1.23}
 \end{equation}
 的\,N=1\,代数.
-\begin{framed}
+
 {\Large{\emph{{$\beta\gamma$场的起源}}}}\\
 
 微分同胚不变性(diffeomorphism)带来的冗余给出了$bc$鬼场, 当我们引入超对称性, 定域超对称性带来的冗余就给出了$\beta\gamma$鬼场. 为此我们要恢复作用量(\ref{10.1.5})的微分同胚不变性并使得超对称性定域.
@@ -470,7 +477,7 @@ _{a}X^{\mu }
 T_{F}=\mi(2/\alpha ^{\prime })^{1/2} \rho ^{a}\rho ^{b}\Psi _{\mu }\partial_{a}X^{\mu }
 \]
 
-\end{framed}
+
 
 \section{Ramond and Neveu-Schwarz sectors}
 现在在圆柱坐标$\,w=\sigma^{1}+\mi\sigma^{2}$上考察$\,\psi\,$场, 新增加的要素是周期性, $\psi\,$场作用量是
@@ -541,7 +548,7 @@ $T_{F}\,$和$\,T_{B}\,$的Laurent展开是
 \begin{subequations}
 \begin{align}
     T_{F}(z)&=\sum_{r\in \mathds{Z}+\nu}\frac{G_{r}}{z^{r+3/2}}\:,  \qquad
-    \tilde{T}_{F}(\bar{z})=\sum_{r\in \mathds{Z}+\nu}\frac{\tilde{G}_{r}}{\bar{z}^{r}+3/2}\:, \label{10.2.10a}\\
+    \tilde{T}_{F}(\bar{z})=\sum_{r\in \mathds{Z}+\nu}\frac{\tilde{G}_{r}}{\bar{z}^{r+3/2}}\:, \label{10.2.10a}\\
     T_{B}(z)&=\sum_{m\in \mathds{Z}}\frac{L_{m}}{z^{m+2}}\:, \qquad
     \tilde{T}_{B}(\bar{z})=\sum_{m\in \mathds{Z}}\frac{\tilde{L}_{m}}{\bar{z}^{m+2}} \:. \label{10.2.10b}
 \end{align} \label{10.2.10}
@@ -588,7 +595,7 @@ CFT围道计算给出模式代数
 每个截面中的超共形生成元是
 \begin{subequations}
 \begin{align}
-    L_{m}&=\frac{1}{2}\sum_{n\in\mathds{Z}} \typecolon \alpha_{m-n}^{\mu}\alpha_{\mu\,n}\!\typecolon
+    L_{m}&=\frac{1}{2}\sum_{n\in\mathds{Z}}\typecolon \alpha_{m-n}^{\mu}\alpha_{\mu\,n}\!\typecolon
     +\frac{1}{4}\sum_{r\in\mathds{Z}+\nu}\typecolon\psi^{\mu}_{m-r}\psi_{\mu\,r}\!\typecolon+a^{\mathrm{m}}\delta_{m,0}\:, \label{10.2.12a} \\
     G_{r}&=\sum_{n\in\mathds{Z}}\alpha_{n}^{\mu}\psi_{\mu\,r-n} \label{10.2.12b}
 \end{align}
@@ -989,7 +996,7 @@ R态$\,\lvert \mathbf{s}\rangle$的顶点算符$\,\Theta_{\mathbf{s}}\,$是
 \begin{tcolorbox}
 注意, $\lvert 1\rangle\,$的定义使得$\,\beta(z),\gamma(z)\,$在$\,z=0\,$处全纯.
 \end{tcolorbox}
-\noindent这并不是基态$\,\lvert 0\rangle_{\mathrm{NS}}$: $\gamma_{1/2}$湮灭了$\,\lvert 0\rangle_{\mathrm{NS}}\,$而它的共轭$\,\beta_{-1/2}\,$湮灭了$\,\lvert1\rangle$. 对于$\,bc\,$鬼则是$\,c_{1}\,$和$\,b_{-1}$. 由于反对易模只生成了两个态, 我们就有$\,\lvert0\rangle =c_{1}\lvert1\rangle$. 对于对易鬼事情就没那么简单了: 通过用$\,\gamma_{1/2}\,$作用在$\,\lvert1\rangle\,$上构造\,Fock\,空间, 在这个空间中没有一个态有$\,\lvert 0\rangle_{\mathrm{NS}}\,$的性质. $\lvert 0\rangle_{\mathrm{NS}}\,$的定义对于相应的算符$\,\delta(\gamma)\,$变成
+\noindent 这并不是基态$\,\lvert 0\rangle_{\mathrm{NS}}$: $\gamma_{1/2}$湮灭了$\,\lvert 0\rangle_{\mathrm{NS}}\,$而它的共轭$\,\beta_{-1/2}\,$湮灭了$\,\lvert1\rangle$. 对于$\,bc\,$鬼则是$\,c_{1}\,$和$\,b_{-1}$. 由于反对易模只生成了两个态, 我们就有$\,\lvert0\rangle =c_{1}\lvert1\rangle$. 对于对易鬼事情就没那么简单了: 通过用$\,\gamma_{1/2}\,$作用在$\,\lvert1\rangle\,$上构造\,Fock\,空间, 在这个空间中没有一个态有$\,\lvert 0\rangle_{\mathrm{NS}}\,$的性质. $\lvert 0\rangle_{\mathrm{NS}}\,$的定义对于相应的算符$\,\delta(\gamma)\,$变成
 \begin{equation}
     \gamma(z)\delta(\gamma(0)) = O(z) \:, \qquad
     \beta(z) \delta(\gamma(0)) = O(z^{-1})\:. \label{10.4.7}

@@ -158,7 +158,7 @@ $g\,$在齐次空间\eqref{1.14'}上的左传递生成了$\,G\,$在$\,\mathbb{K}
 \subsection{$G\,$的各种子群的矩阵实现. Bruhat\,分解的构造}
 
 矩阵$\,\tilde{n}\,$和$\,n\,$可以分别被相应的\,$2h$-维矢量$\,x(\in \mathbb{X})\,$和$\,b\,$实现. 
-利用生成元的矩阵实现\eqref{1.7}, 我们获得矩阵$\,x_{\mu}T_{\mu}\,$和$\,b_{\mu}C_{\mu}\,$的如下表示:
+利用生成元的矩阵实现\eqref{1.7}, 我们获得矩阵$\,x_{\mu}T_{\mu}\,$和 $b_{\mu}C_{\mu}\,$的如下表示:
 \begin{equation}
     x_{\mu}T_{\mu}= \left(
         \begin{array}{@{}c:c@{}}
@@ -259,7 +259,7 @@ $g\,$在齐次空间\eqref{1.14'}上的左传递生成了$\,G\,$在$\,\mathbb{K}
 \end{align}
 矩阵$\,g\in G\,$可以写成形如\eqref{1.24}的条件是
 \begin{equation}
-    d(g):=\tfrac{1}{2}\bigl(g^{2h+1}{}_{2h+1}-g^{2h+1}{}_{0}-g^{0}{}_{2h+1}+g^{0}{}_{0}\bigr) =\me^{-\alpha} >0
+    d(g):=\tfrac{1}{2}\bigl(g^{2h+1}{}_{2h+1}-g^{2h+1}{}_{0}-g^{0}{}_{2h+1}+g^{0}{}_{0}\bigr) =\me^{-\alpha} >0 \:. \label{1.25}
 \end{equation}
 注意, $d(g)\,$对形如$\,wnam\,$的$\,g\,$为零.
 
@@ -277,4 +277,57 @@ $g\,$在齐次空间\eqref{1.14'}上的左传递生成了$\,G\,$在$\,\mathbb{K}
 \begin{equation}
     g\tilde{n}_{x} =\tilde{n}_{x'} n(g,x)a(g,x)m(g,x) \:. \label{1.27}
 \end{equation}
-我们定义变换$\,x\xrightarrow[]{g}x'$
+我们定义变换$\,x\xrightarrow[]{g}x'$. 这给出了在$\,\mathbb{X}\,$的自同构群$\,\tilde{N}AM\,$下的变换规则\eqref{1.15b}, \eqref{1.17}, 以及特殊共形变换规则
+\begin{equation}
+    x'^{\mu} = \frac{x^{\mu}+x^{2}b^{\mu}}{1+2b_{\nu}x^{\nu}+b^{2}x^{2}} \:. \label{1.28}
+\end{equation}
+注意到\eqref{1.28}中的分母正是\eqref{1.25}中定义的$\,d(n_{b}\tilde{n}_{x})$. 特殊共形变换可以表示为平移和$\,(2h{+}1)\,$-轴的反射$\,R\,$($\,R\,$等于\eqref{1.10}定义的\,Weyl\,变换$\,w\,$再加上反射$\,\xi_{i}\to-\xi_{i}$, $i=1,\ldots,2h-1$.) 利用$\,R\tilde{n}_{x}\,$的分解\eqref{1.27}, 我们得到在{\it 共形反演}下的变换:
+\begin{equation}
+    Rx^{\mu}=-\frac{x^{\mu}}{x^{2}} \: ;\qquad 
+    wx^{\mu} = \frac{\theta x^{\mu}}{x^{2}} \:,
+\end{equation}
+其中$\,\theta\,$是$\,2h\,$-轴的反射, 很容易证明$\,n_{b}=R\tilde{n}_{b}R^{-1}$.
+
+我们回到\eqref{1.27}. 通过
+\begin{equation}
+    g^{-1}\tilde{n}_{x}=\tilde{n}_{x'}p(x,g)^{-1}\:, \qquad x'=g^{-1}x \:, \tag{1.27a}\label{1.27a}
+\end{equation}
+我们定义$\,p(x,g)\in MAN$. 那么$\,p(x,g^{-1})^{-1}=n(g,x)a(g,x)m(g,x)$. 从\eqref{1.27a}中可以推出上闭链条件
+\begin{equation}
+    p(x,g_{1}g_{2})=p(x,g_{1})p(g_{1}^{-1}x,g_{2}) \:. \label{1.27b} \tag{1.27b}
+\end{equation}
+\begin{tcolorbox}
+   \begin{equation*}
+    \tilde{n}_{g_{2}^{-1}g_{1}^{-1}x}p(x,g_{1}g_{2})^{-1}=g_{2}^{-1}g_{1}^{-1}\tilde{n}_{x}
+    =g_{2}^{-1}\tilde{n}_{g_{1}^{-1}x}p(x,g_{1})^{-1}=\tilde{n}_{g_{2}^{-1}g_{1}^{-1}x}p(g_{1}^{-1}x,g_{2})^{-1}p(x,g_{1})^{-1}
+   \end{equation*} 
+\end{tcolorbox}
+\noindent 从定义可以立即得出如下的特殊情况
+\begin{equation}
+    p(x,\tilde{n})=1 \qquad \text{对于}\quad \tilde{n}\in\tilde{N}\:; \qquad
+    p(x,ma)=ma \qquad \text{对于}\quad ma\in MA \:. \label{1.27c} \tag{1.27b}
+\end{equation}
+对于
+\begin{equation}
+    p_{x}:=p(x,w) \:. \label{1.27d} \tag{1.27d}
+\end{equation}
+方程(\ref{1.24})给出显式公式
+\begin{equation}
+    p_{x}:=m_{x}a_{x}n_{\theta x} \qquad \text{其中} \:
+    m_{x}=\biggl(-\mathds{1}+2\frac{xx^{\mathrm{T}}}{x^{2}}\biggr)I_{s}\:,\quad \lvert a(x)\rvert =x^{2} \:. 
+    \label{1.27e} \tag{1.27e}
+\end{equation}
+其中$\,x,x^{\mathrm{T}}\,$分别列矢量和行矢量$\,(x^{1},\ldots,x^{2h})$. 可以立即得到如下恒等式
+\begin{equation}
+m_{x+y}m_{wy}=m_{x}m_{wx+wy}\:; \qquad a_{x+y}a_{wy}=a_{x}a_{wx+wy} \label{1.27f} \tag{1.27f}
+\end{equation}
+和
+\begin{equation}
+p(x,n_{-Ry})=h_{x}h_{wx-wy}n_{Ru} =n_{R(y-x)}h_{x}h_{wx-wy} \label{1.27g} \tag{1.27g}
+\end{equation}
+其中$\,h_{x}=m_{x}a_{x}\,$且$\,u=y+w(wx-wy)$.
+\begin{note}
+    HW: 证明\eqref{1.27e}---\eqref{1.27g}. $I_{s}\,$是什么?
+\end{note}
+
+\subsection{Bruhat\,分解与\,Iwasawa\,分解之间的关系}

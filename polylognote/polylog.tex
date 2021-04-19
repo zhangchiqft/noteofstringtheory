@@ -1,0 +1,285 @@
+\documentclass[12pt]{article}
+
+%\usepackage{inputenc}
+
+\input{package}
+
+
+\title{Some Notes on Polylogarithm}
+\author{Chi Zhang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Two ways of defining (Multiple) Polylogarithm} \label{sec:1}
+
+
+
+1. MPL's can be defined by iterated integrals  (Goncharov $G$-function) 
+\begin{equation}
+    G(\sigma_{1},\sigma_{2},\ldots,\sigma_{n};z)=\int_{0}^{z}\frac{\dif t}{t-\sigma_{1}} G(\sigma_{2},\ldots,\sigma_{n};t)
+    \label{Gfunction}
+\end{equation}
+with 
+\begin{equation}
+    G(z):=1 \:,\qquad G(\vec{0}_{n};z):=\frac{1}{n!}\log^{n}z \:.
+\end{equation}
+In Panzer's notation(arXiv: 1403.3385), this function is denoted by $L_{\sigma_{1},\cdots ,\sigma_{n}}$ or $L_{\omega_{\sigma_{1}},\cdots ,\omega_{\sigma_{n}}}$  
+
+Furthermore, we introduce the iterated integrals with general endpoints
+\begin{equation}
+    I(a_{0};a_{1},\ldots,a_{n};a_{n+1})=\int_{a_{0}<t_{1}<\cdots<t_{n}<a_{n+1}}\frac{\dif t_{1}\cdots \dif t_{n}}{(t_{1}-a_{1})\cdots (t_{n}-a_{n})}
+\end{equation}
+
+2. MPL's can be defined by nested sums
+\begin{equation}
+    \operatorname{Li}_{m_{1},\ldots,m_{k}}(z_{1},\ldots,z_{k}) := 
+    \sum_{0<n_{1}<n_{2}<\cdots <n_{k}}\frac{z_{1}^{n_{1}}z_{2}^{n_{2}}\cdots z_{k}^{n_{k}}}{n_{1}^{m_{1}}n_{2}^{m_{2}}\cdots n_{k}^{m_{k}} }  \qquad \text{for }\lvert z_{i}\rvert <1
+\end{equation}
+This can be viewd as a generation of classical polylogarithm:
+\begin{align}
+    \Li_{1}(z) &= \sum_{n=1}^{\infty}\frac{z^{n}}{n} = -\log(1-z) =\int_{0}^{z}\frac{\dif t}{1-t} \\
+    \Li_{k}(z) &= \sum_{n=1}^{\infty}\frac{z^{n}}{n^{k}} =\int_{0}^{z}\frac{\dif t}{t}\Li_{k-1}(t)
+\end{align}
+
+This two kinds of MPL's are related by
+\begin{equation}
+    G\Bigl(\vec{0}_{m_{1}-1},\sigma_{1},\ldots,\vec{0}_{m_{k}-1},\sigma_{k};z\Bigr)=
+    (-1)^{k}\Li_{m_{k},\ldots,m_{1}}\biggl(\frac{\sigma_{k-1}}{\sigma_{k}},\ldots,\frac{\sigma_{1}}{\sigma_{2}},\frac{z}{\sigma_{1}}\biggr)
+\end{equation}
+
+Several special examples of $G$-functions
+\begin{equation}
+    G(\vec{\sigma}_{n};z) = \frac{1}{n!}\log^{n}\biggl(1-\frac{z}{\sigma}\biggr) \qquad
+    G(\vec{0}_{n-1},\sigma;z) = -\Li_{n}\biggl(\frac{z}{\sigma}\biggr)  \:.
+\end{equation}
+In this note, we will focus on $G$-functions and denote $G(\sigma_{1},\sigma_{2},\ldots,\sigma_{n};z)$ by $G(\vec{\sigma};z)$
+
+
+\section{Shuffle algebras, derivatives, integrals of MPL's} \label{sec:2}
+
+According to the definition of $G$-function \eqref{Gfunction}, the differentiation is trivial
+\begin{equation}
+    \partial_{z}G(\sigma_{1},\ldots,\sigma_{n};z)=\frac{1}{z-\sigma_{1}} G(\sigma_{2},\ldots,\sigma_{n};z) \:.
+\end{equation}
+The integral of $R(z)G(\vec{\sigma};z)$ with a rational function $R(z)$ is also easy due to
+\begin{align}
+    \int \dif z\:\frac{G(\vec{\sigma};z)}{(z-\rho)^{n+1}} &= -\frac{G(\vec{\sigma};z)}{n(z-\rho)^{n}} 
+    +\int \dif z\:\frac{\partial_{z}G(\vec{\sigma};z)}{n(z-\rho)^{n}} \:,  \\
+    \int \dif z\: z^{n} G(\vec{\sigma};z) &= \frac{z^{n+1}G(\vec{\sigma};z)}{n+1} 
+    -\int\dif z\: \frac{z^{n}\partial_{z}G(\vec{\sigma};z)}{n+1} 
+\end{align}
+
+Now let us consider a product of two $G$-functions
+\begin{align*}
+    G(\vec{\sigma};z)G(\vec{\rho};z)= 
+    \int_{0<t_{n}<t_{n-1}<\cdots<t_{1}<z}\frac{\dif t_{1} \cdots \dif t_{n} }{(t_{1}-\sigma_{1})\cdots (t_{n}-\sigma_{n})}
+    \int_{0<t'_{m}<t'_{m-1}<\cdots<t'_{1}<z}\frac{\dif t'_{1} \cdots \dif t'_{m} }{(t'_{1}-\rho_{1})\cdots (t'_{n}-\rho_{n})} \:.
+\end{align*}
+This integral can be expressed as a sum of iterated integral by decomposed the integration region into simplexes. Obviously, The only request on $t$ and $t'$ in each simplex is that they should preserve their origin orders, respectively. Then all simplexes correspond to all possible relative orders between $t$ and $t'$. Thus, we end up with
+\begin{equation}
+    G(\vec{\sigma};z)G(\vec{\rho};z)= \sum_{\vec{\omega}\in \vec{\sigma}\shuffle \vec{\rho} } G(\vec{\omega};z)
+\end{equation}  
+
+Example:
+\begin{align*}
+    G(a_{1},a_{2};z) G(b_{1},b_{2};z) &= G(a_{1},a_{2},b_{1},b_{2};z)+G(a_{1},b_{1},a_{2},b_{2};z) + G(b_{1},a_{1},a_{2},b_{2};z) \\
+    &\quad + G(a_{1},b_{1},b_{2},a_{2};z)+ G(b_{1},a_{1},b_{2},a_{2};z)+G(b_{1},b_{2},a_{1},a_{2};z)
+\end{align*}
+
+\section{Symbol of MPL}
+
+There are two approaches to define the symbol for a MPL (iterated integral). One is coproduct, the other is differential.
+
+1. Coproduct \\
+There is a Hopf algebra on the space of iterated integrals(arXiv:math/0208144), that is, we can define coproduct for an iterated integral
+\begin{align*}
+   &\bigl( \Delta(I(a_{0};a_{1},\ldots,a_{n};a_{n+1})\bigr)    \\
+   &\quad =\sum_{0=i_{0}<i_{1}<\cdots i_{k}<i_{k+1}=n+1} I(a_{0};a_{i_{1}},\ldots,a_{i_{k}};a_{n+1})\otimes 
+   \Biggl(\prod_{p=0}^{k}I(a_{i_{p}};a_{i_{p}+1},\ldots,a_{i_{p+1}-1};a_{i_{p+1}})\Biggr)
+\end{align*}
+The symbol (map) can be defined as the maximal iteration of the coproduct (modulo $\mi\pi$)
+\begin{equation}
+    \mathcal{S}(F)=\Delta_{1,\ldots,1}(F) \operatorname{mod}\mi\pi
+\end{equation}
+(For a clear review of Hopf algebra, see arXiv:1203.0454)
+
+2.  Differential  \\
+The total differential of a MPL's $F^{(n)}(\sigma_{1},\ldots,\sigma_{m})$ can be written as
+\begin{equation}
+    \dif F^{(n)} =\sum_{i}F_{i}^{(n-1)} \dif \log R_{i}
+\end{equation}
+where $R_{i}$ are rational functions of $\sigma_{1},\ldots,\sigma_{m}$, then the symbol of $F^{(n)}$ can be computed recursively by 
+\begin{equation}
+        \mathcal{S}(F^{(n)}) = \sum_{i}\mathcal{S} (F_{i}^{(n-1)})\otimes R_{i} \:.
+\end{equation}
+
+Indeed, the differential of a iterated integral is 
+\begin{equation}
+    \dif I(a_{0};a_{1},\ldots,a_{n};a_{n+1})=\sum_{i=1}^{n}I(a_{0};a_{1},\ldots,\hat{a}_{i},\ldots,a_{n};a_{n+1})
+    \dif\log\frac{a_{i+1}-a_{i}}{a_{i}-a_{i-1}} \:.
+\end{equation}
+    
+Example:
+\begin{equation}
+    \mathcal{S}\Biggl( \prod_{i=1}^{n} \log a_{i}\Biggr)=\sum_{\sigma\in S_{n}} a_{\sigma(1)}\otimes\cdots \otimes a_{\sigma(n)} \:, \qquad 
+    \mathcal{S}\Bigl(\Li_{n}(z)\Bigr)=-\bigl((1-z)\otimes \underbrace{z\otimes \cdots \otimes z}_{n-1} \bigr)
+\end{equation}
+
+It is easy to see that
+\begin{align}
+    A\otimes a\otimes B+A\otimes b \otimes B &= A\otimes ab \otimes B \\
+     A\otimes \rho_{n} \otimes B &= 0 \\
+    \mathcal{S}\bigl(FG\bigr) &=\mathcal{S}(F)\shuffle\mathcal{S}(G)
+\end{align}
+where $\rho_{n}$ is an $n$-th root of unity. 
+
+The introduction of symbol trivialize the functional relation of MPL, for example
+\begin{equation}
+    \Li_{2}(1-z)=\zeta_{2}-\Li_{2}(z)-\log(z)\log(1-z) \:.
+\end{equation}
+
+To integrate a symbol 
+\begin{equation}
+    S=\sum_{I=(i_{1},\ldots,i_{n})}c_{I}a_{i_{1}}\otimes\cdots\otimes a_{i_{n}}
+\end{equation}
+to a function, the symbol must satisfy the integrability condition
+\begin{equation}
+    \sum c_{I} a_{i_{1}} \otimes \cdots \otimes a_{i_{p-1}}\otimes a_{i_{p+2}} \otimes \cdots\otimes a_{i_{n}} \:
+    \dif\log a_{i_{p}}\wedge \dif \log a_{i_{p+1}} =0
+\end{equation}
+for every consecutive pair of indices.
+
+\section{Symbol Integration}
+(This part is the same as the argument in arXiv:1806.06072)
+
+Consider the following integral where the integrand converges both at zero and infinity (more generally one can consider an integral with finite integration endpoints),
+\begin{align}
+ I(y,x_i) = \int_0^\infty\!\!\! \dif \log (x+y) F^{(n)}(x,x_i) \equiv  \int_0^\infty \frac{\dif x}{x+y} F^{(n)}(x,x_i) \,.
+\end{align}
+The first step in the symbol integration involves taking the total differential of the integral $I(y,x_i)$,
+\begin{align}
+ \dif I(y,x_i) &= \left[\dif y \partial_y + \dif x_i \partial_{x_i}\right] I(y,x_i) \nonumber \\
+              &= - \dif y \int_0^\infty \!\!\! \frac{\dif x}{(x+y)^2} F^{(n)}(x,x_i) + \dif x_i \int_0^\infty \frac{\dif x}{(x+y)} \partial_{x_i}F^{(n)}(x,x_i)\,.
+\end{align}
+The first term we write as a derivative with respect to $x$ and integrate by parts, we find
+\begin{align}
+ \dif y \int_0^\infty\!\!\!  \dif x \left[\partial_x\frac{1}{(x+y)}\right] F^{(n)}(x,x_i) 
+  =  \dif y \frac{F^{(n)}(x,x_i)}{x+y}\Big|^{x=\infty}_{x=0}
+ 		   - \dif y \int_0^\infty\!\!\!  \frac{\dif x}{(x+y)} \partial_xF^{(n)}(x,x_i) \,.
+\end{align}
+Since the $F^{(n)}(x,x_i)$ are MPL's,
+\begin{align}
+\begin{split}
+\partial_x      F^{(n)}(x,x_i) &\!=\! \sum_{j} F^{(n-1)}_j(x,x_i) \frac{\partial\log(x+\beta_j)}{\partial x } \\
+\partial_{x_i} F^{(n)}(x,x_i) &\!=\! \sum_{j} F^{(n-1)}_j(x,x_i) \frac{\partial\log(x+\beta_j)}{\partial \beta_j}  \left(\frac{\partial \beta_j}{\partial x_i} \right) 
+					 \! +\! \sum_{j'} H^{(n-1)}_{j'} (x,x_i) \frac{\partial \log f_{j'}}{\partial x_i}
+\end{split}
+\end{align}
+where $f_{j'}$ are functions of $x_{i}$'s only. 
+
+Taking the boundary term at $x=\infty$ to vanish, the differential of the integral becomes,
+\begin{align}
+\begin{split}
+ \dif  I(y,x_i)  = - \dif \log y F^{(n)}(0,x_i) & - \sum_j \dif y \int_0^\infty\!\!\!  \frac{\dif x}{(x+y)(x+\beta_j)} F^{(n-1)}_j \\
+ 							 & + \sum_j \underbrace{\dif x_i   \left(\frac{\partial \beta_j}{\partial x_i} \right)}_{=\dif \beta_j}  \int_0^\infty\!\!\!  \frac{\dif x}{(x+y)(x+\beta_j)} F^{(n-1)}_j  \\
+							 & + \sum_{j'} \underbrace{\dif x_i \frac{\partial \log f_{j'}}{\partial x_i}}_{=\dif \log f_{j'}} \int_0^\infty\!\!\!  \frac{\dif x}{(x+y)} H^{(n-1)}_{j'}
+\end{split}
+\end{align}
+We use partial fraction for the first two terms,
+\begin{align}
+\frac{1}{(x+y)(x+\beta_j)} = \frac{1}{(y-\beta_j)} \left[\frac{1}{(x+\beta_j)}-\frac{1}{(x+y)}\right]\,.
+\end{align}
+Putting everything together, we find,
+\begin{align}
+\begin{split}
+ \dif I =&  -\dif \log y \ F^{(n)}(0,x_i) +  \sum_{j'} \dif \log f_{j'} \int_0^\infty\!\!\!  \frac{\dif x}{(x+y)} H^{(n-1)}_{j'} \\
+       &  -\sum_j \left[\frac{\dif y}{(y-\beta_j)} - \frac{\dif \beta_j}{(y-\beta_j)}\right]  \int_0^\infty\!  \left[\frac{\dif x}{(x+\beta_j)}-\frac{\dif x}{(x+y)}\right] F^{(n-1)}_j \,.
+\end{split}
+\end{align}
+Combining the respective terms in the brackets back into $\dif \log$-forms, we recover the expressions 
+\begin{align}
+\begin{split}
+  \dif I(y,x_i) =& -\dif \log y \ F^{(n)}(0,x_i)  +  \sum_{j'}  \dif \log f_{j'} \int_0^\infty \dif \log(x+y) H^{(n-1)}_{j'} (x,x_i) \\
+        & +\sum_j \dif \log(y-\beta_j) \int_0^\infty\!\!\! \dif \log\left(\!\frac{x+y}{x+\beta_j}\!\right) F^{(n-1)}_j(x,x_i)
+\end{split}
+\end{align}
+
+\section{MPL Integration}
+
+(This part follows from arXiv: 0804.1660 and arXiv:1403.3385, for more details, see arXiv:1407.0074)
+    
+In the calculation of Feynman integrals or the $\alpha'$-expansions of string integrals or other cases, we will usually encounter integrals involving MPL's, but the integral is of form 
+\begin{equation}
+    \int \dif z \: R(z) G(\vec{\sigma}(z); z'(z)) \label{genint}
+\end{equation}  
+rather simply  $\int \dif R(z) G(\vec{\sigma};z)$ we have discussed in sec.\ref{sec:2}. To preform the integration in \eqref{genint}, we need to express $G(\vec{\sigma}(z);z'(z))$ as
+\begin{equation}
+    G(\vec{\sigma}(z);z'(z)) = \sum_{\vec{\tau}}c_{\vec{\tau}} G(\vec{\tau};z) 
+\end{equation}
+
+In the practical cases, the integral of form \eqref{genint} usually appear in the intermediary steps of calculation of 
+\begin{equation}
+    f_{n}=\int_{0}^{\infty} \dif z_{n} \: f_{n-1}(z_{n}) = \int_{0}^{\infty}\dif z_{1}\cdots \int_{0}^{\infty}\dif z_{n}\: f_{0}
+\end{equation}
+with certain polylogarithms $f_{0}(\vec{z})$. Suppose $f_{k-1}(z_{k})$ has a primitive $F(z_{k})$, then
+\begin{equation}
+    \int_{0}^{\infty} f_{k-1}(z_{k}) \: \dif z_{k} =\lim_{z_{k}\to\infty } F(z_{k}) - \lim_{z_{k}\to 0 } F(z_{k})
+\end{equation}
+There are divergences in each limit, although these divergences must cancel at the end. Thus, it would be convenient define a regularized limit for MPL $G(\vec{\sigma};z)$. The singularities of $G(\vec{\sigma};z)$ at $z\to \tau$ are logarithmic at worst, so we have the expansion
+\begin{equation}
+   G(\vec{\sigma}(z)) = \sum_{i=0}^{\lvert \vec{\sigma} \rvert} f_{\vec{\sigma},\tau}^{(i)}(z)\log^{i}(z-\tau)\:.
+\end{equation} 
+Then regularized limits are defined as 
+\begin{equation}
+    \operatorname{Reg}_{z\to\tau} G(\vec{\sigma};z):= f^{(0)}_{\vec{\sigma},\tau}(\tau)
+\end{equation}
+(For more details of regularized limits, see arXiv:1407.0074)
+
+Then our problem becomes to express $\operatorname{Reg}_{z_{k}\to\infty} G(\vec{\sigma};z_{k})$ in terms of $G(\ast;z_{k+1})$. We can approach this problem by taking partial differential of $G(\vec{\sigma};z_{k})$ with respect to $z_{k+1}:=t$, then we find 
+\begin{align}
+    \partial_{t} G(\vec{\sigma};z_{k})&=\sum_{i=1}^{k-1} \partial_{t}\log\bigl(\sigma_{i}(t)-\sigma_{i+1}(t)\bigr)
+    \Bigl(G(\sigma_{1},\ldots,\hat{\sigma}_{i+1},\ldots ,\sigma_{k};z_{k})-G(\sigma_{1},\ldots,\hat{\sigma}_{i},\ldots ,\sigma_{k};z_{k})\Bigr) \nonumber \\
+    &\quad +\partial_{t}\log(\sigma_{1}-z_{k})G(\sigma_{2},\ldots,\sigma_{k};z_{k})-
+    \partial_{t}\log\sigma_{k}G(\sigma_{1},\ldots,\sigma_{k-1};z_{k})
+\end{align}
+Using $\Reg_{z_{k}\to\infty}\partial_{t}=\partial_{t}\Reg_{z_{k}\to\infty}$ yields
+\begin{align}
+    &\quad \partial_{t}\Reg_{z_{k}\to\infty}G(\vec{\sigma};z_{k}) \nonumber \\
+    &=-\partial_{t}\log\sigma_{k} \Reg_{z_{k}\to\infty} G(\sigma_{1},\ldots,\sigma_{k-1};z_{k})  \nonumber \\
+    &+\sum_{i=1}^{k-1} \partial_{t}\log\bigl(\sigma_{i}(t)-\sigma_{i+1}(t)\bigr) \Reg_{z_{k}\to\infty}
+    \Bigl(G(\sigma_{1},\ldots,\hat{\sigma}_{i+1},\ldots ,\sigma_{k};z_{k})-G(\sigma_{1},\ldots,\hat{\sigma}_{i},\ldots ,\sigma_{k};z_{k})\Bigr)
+\end{align}
+To make sure $\Reg_{z_{k}\to\infty}G(\vec{\sigma};z_{k})$ is  polylogarithms of $t$,  We assume that $\sigma_{1},\ldots,\sigma_{k}\in \mathbb{Q}(t)$ such that any $\sigma_{i}-\sigma_{j}=c\prod_{\tau}(t-\tau)^{\lambda_{\tau}}$. We can use the same trick recursively in the right hand side, and end up with 
+\begin{equation}
+    \partial_{t}\Reg_{z_{k}\to\infty} G(\vec{\sigma};z_{k}) = \sum_{\vec{\rho}\in\Sigma_{t}^{\times},\tau\in\Sigma_{t}}
+    \frac{\lambda_{\tau,\vec{\rho}}}{t-\tau}G(\vec{\rho};t)\cdot c_{\vec{\rho}}
+\end{equation} 
+where $\lambda_{\tau,\vec{\rho}}\in \mathbb{Z}$, $c_{\vec{\rho}}$ is some constants,
+\begin{equation}
+    \Sigma_{t}:= \Biggl\{\text{zeros of }\prod_{i<j}[\sigma_{i}(t)-\sigma_{j}(t)]\Biggr\} \:.
+\end{equation} 
+So
+\begin{equation}
+    \Reg_{z_{k}\to\infty} G(\vec{\sigma};z_{k}) = C +\sum_{\vec{\rho}\in\Sigma_{t}^{\times},\tau\in\Sigma_{t}}
+    \lambda_{\tau,\vec{\rho}}G(\vec{\rho};t)c_{\vec{\rho}}
+\end{equation}
+where the integration constant $C$ is determined by 
+\begin{equation}
+    C=\Reg_{t\to 0}\Reg_{z_{k}\to\infty} G(\vec{\sigma};z_{k}) \:.
+\end{equation}
+
+This procedure is known as ``expansion on a fibration basis''.
+
+
+% $\bar{\psi} \ell Q \mathrm{Q}$
+
+% \begin{align*}
+%     & \mathbfit{G} G
+%  &\mathrm{\pi} \qquad  \mathrm{\delta} \\
+% & \pi  \qquad \delta
+% \end{align*}
+
+\end{document}
