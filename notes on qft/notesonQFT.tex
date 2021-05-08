@@ -1,0 +1,67 @@
+\documentclass[cn,11pt,chinese]{elegantbook}
+
+\title{\,量子场论笔记}
+\subtitle{Notes on Quantum Field Theory}
+
+\author{兴趣使然的场论爱好者}
+%\bioinfo{录入}{渤海玉兔}
+%\institute{Elegant\LaTeX{} Program}
+\date{\today}
+%\version{3.10}
+
+
+\extrainfo{The effort to understand the universe is one of the very few things which lifts human life a little above the level of farce and gives it some of the grace of tragedy. --- Steven Weinberg}
+
+%\logo{logo-blue.png}
+\cover{Particle.jpeg}
+
+% 本文档命令
+%\usepackage[lcgreekalpha]{stix2}
+\usepackage{array}
+\usepackage{dsfont}
+\usepackage{tensor}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+     \usepgflibrary{shapes.geometric}
+     \usetikzlibrary{calc}
+
+
+
+\allowdisplaybreaks[4]
+
+ \definecolor{foo}{RGB}{173,34,48}
+%+++++++++++++++++++++++数学字体的设置++++++++++++++++++++++++++++++++++++++++%
+\newcommand{\me}{\mathrm{e}}  % for math e
+\newcommand{\mi}{\mathrm{i}} % for math i
+\newcommand{\dif}{\mathrm{d}} %for differential operator d
+\newcommand{\cvec}[1]{\!\vec{\,#1}}
+\newcommand{\Ptimes}{\,\overset{\otimes }{,}\,}
+\DeclareSymbolFont{lettersA}{U}{txmia}{m}{it}
+\DeclareMathSymbol{\piup}{\mathord}{lettersA}{25}
+ \DeclareMathSymbol{\muup}{\mathord}{lettersA}{22}
+ \DeclareMathSymbol{\deltaup}{\mathord}{lettersA}{14}
+ \newcommand{\uppi}{\piup}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+
+\DeclareFontEncoding{LS1}{}{}
+\DeclareFontSubstitution{LS1}{stix}{m}{n}
+\DeclareSymbolFont{symbols2}{LS1}{stixfrak}{m}{n}
+\DeclareMathSymbol{\typecolon}{\mathbin}{symbols2}{"25}
+% 修改目录深度
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+\mainmatter
+
+\tableofcontents
+
+
+\include{chapter1}
+
+
+\end{document}
