@@ -1,4 +1,4 @@
-\documentclass[cn,11pt,chinese]{elegantbook}
+\documentclass[cn,11pt]{elegantbook}
 
 \title{\,量子场论笔记}
 \subtitle{Notes on Quantum Field Theory}
@@ -20,13 +20,18 @@
 \usepackage{array}
 \usepackage{dsfont}
 \usepackage{tensor}
+%\usepackage[super,square]{natbib}
 
 \usepackage{pgfplots}
 \usepgfplotslibrary{polar}
      \usepgflibrary{shapes.geometric}
      \usetikzlibrary{calc}
 
+     \usepackage[perpage]{manyfoot}
+     \DeclareNewFootnote{B}[fnsymbol]   %% for weinberg only
 
+%\xeCJKsetup{PunctStyle=quanjiao}
+  
 
 \allowdisplaybreaks[4]
 
@@ -44,6 +49,9 @@
  \newcommand{\uppi}{\piup}
 \newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
 
+\newcommand{\kai}{\kaishu} % for weinberg only
+
+\newcommand{\hei}{\heiti} % for weinberg only
 
 \DeclareFontEncoding{LS1}{}{}
 \DeclareFontSubstitution{LS1}{stix}{m}{n}
@@ -61,7 +69,9 @@
 \tableofcontents
 
 
-\include{chapter1}
+%\include{chapter1} %% Notes on Coleman "The uses of Instanton" 
+
+\include{weinbergcha15}
 
 
 \end{document}

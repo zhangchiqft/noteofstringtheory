@@ -296,7 +296,7 @@
 \newcommand{\question}[1]{{\par\citshape #1}\\[0.2ex]}
 
 \ifdefstring{\ELEGANT@lang}{cn}{\relax}{
-  \RequirePackage[\ELEGANT@cite,sort&compress]{natbib}}
+  \RequirePackage[\ELEGANT@cite,sort&compress,super,square]{natbib}}
 
 \RequirePackage{enumerate}
 % list/itemize/enumerate setting
